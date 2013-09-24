@@ -17,32 +17,32 @@ exports.registerRoute = function (hook_name, args, cb) {
   args.app.get('/admin/message_to_all', function(req, res) {
     var message = req.query.message;
 	
-	async.series([
-	  function(callback){
-	    if (message && message != "") {
-		  var clients = socketio.sockets.clients();
+    async.series([
+      function(callback){
+        if (message && message != "") {
+        var clients = socketio.sockets.clients();
 
-		  for(var i = 0; i < clients.length; i++) {
-		    clients[i].json.send({type: "COLLABROOM",
+          for(var i = 0; i < clients.length; i++) {
+            clients[i].json.send({type: "COLLABROOM",
               data:{
                 type: "shoutMessage",
-			    payload:{
-			      message: message
-			    }
+                payload:{
+                  message: message
+                }
               }
             });
-		  }
-		}
+          }
+        }
         callback();
       },
-	  function(callback){
-	    var render_args = {
+      function(callback){
+        var render_args = {
           message: message,
-	      users: socketio.sockets.clients().length
+          users: socketio.sockets.clients().length
         };
         res.send( eejs.require("ep_message_all/templates/admin/shout.html", render_args) );
-		callback();
-	  }
-	]);
+        callback();
+      }
+    ]);
   });
 };
