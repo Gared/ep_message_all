@@ -1,0 +1,9 @@
+{
+  "name": "ep_message_all",
+  "version": "0.0.1",
+  "description": "Formular on admin interface to send message to all connected users",
+  "author": "gared (STEFAN MUELLER) <stefan@stefans-entwicklerecke.de>",
+  "contributors": [],
+  "dependencies": {},
+  "engines": { "node": ">= 0.6.0"}
+}

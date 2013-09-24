@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Shout message - Etherpad</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <script src="../static/js/jquery.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="menu">
+        <h1>Etherpad</h1> 
+        <ul>
+          <% e.begin_block("adminMenu"); %>
+          <li><a href="plugins">Plugin manager</a> </li>
+          <li><a href="settings">Settings</a> </li>
+          <li><a href="plugins/info">Troubleshooting information</a> </li>
+          <% e.end_block(); %>
+        </ul>
+      </div>
+
+      <div class="innerwrapper">
+	    <div>
+		  <span data-l10n-id="ep_message_all.divTextConUsers">Connected users</span>: <%= users %>
+		</div>
+		<br/>
+		<div data-l10n-id="ep_message_all.sendMessageDescription">
+		  With this formular you can send a message to all connected users
+		</div>
+		<form>
+          <textarea style="width:100%;height:100px" id="messageText" name="message"></textarea>
+		  <br/>
+		  <button id="shoutMessage" data-l10n-id="ep_message_all.formBtnSendVal">Send message</button>
+		</form>
+      </div>
+    </div>
+  </body>
+</html>

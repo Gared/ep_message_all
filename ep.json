@@ -1,0 +1,15 @@
+{
+  "parts": [
+    {
+      "name": "ep_message_all",
+	  "client_hooks": {
+        "handleClientMessage_shoutMessage": "ep_message_all/static/js/messageHandler"
+      },
+	  "hooks": {
+	    "socketio": "ep_message_all/index:socketio",
+		"expressCreateServer" : "ep_message_all/index:registerRoute",
+        "eejsBlock_adminMenu": "ep_message_all/index"
+	  }
+    }
+  ]
+}
