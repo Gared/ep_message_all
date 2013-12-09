@@ -1,5 +1,5 @@
 {
-"ep_message_all.adminMenuEntry": "Message to all",
+"ep_message_all.adminMenuEntry": "Message_to_all",
 "ep_message_all.divTextConUsers": "Connected users",
 "ep_message_all.sendMessageDescription": "With this formular you can send a message to all connected users",
 "ep_message_all.formBtnSendVal": "Send message"

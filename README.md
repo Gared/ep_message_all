@@ -5,5 +5,4 @@ This plugin adds a new site to the admin interface of eplite to send a message t
 
 # TODO
 
-* Add localization
 * Show message on client side in a better way (desktop notification)
