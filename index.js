@@ -36,7 +36,7 @@ exports.registerRoute = function (hook_name, args, cb) {
       function(callback){
         var render_args = {
           message: message,
-          users: socketio.sockets.adapter.nsp.connected.length
+          users: Object.keys(socketio.sockets.adapter.nsp.connected).length
         };
         res.send( eejs.require("ep_message_all/templates/admin/shout.html", render_args) );
         callback();
