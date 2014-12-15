@@ -16,19 +16,31 @@ exports.eejsBlock_adminMenu = function(hook_name, args, cb) {
 exports.registerRoute = function (hook_name, args, cb) {
   args.app.get('/admin/message_to_all', function(req, res) {
     var message = req.query.message;
+    var clients;
+    if (socketio.sockets.clients) {
+      clients = socketio.sockets.clients();
+    } else {
+      clients = socketio.sockets.adapter.nsp.connected;
+    }
+    
     async.series([
       function(callback){
         if (message && message != "") {
-          var clients = socketio.sockets.adapter.nsp.connected;
-          for(var client in clients) {
-            clients[client].send({type: "COLLABROOM",
-              data:{
-                type: "shoutMessage",
-                payload:{
-                  message: message
-                }
+          var messageObject = {type: "COLLABROOM",
+            data:{
+              type: "shoutMessage",
+              payload:{
+                message: message
               }
-            });
+            }
+          };
+          
+          for (var client in clients) {
+            if (clients[client].json) {
+              clients[client].json.send(messageObject);
+            } else {
+              clients[client].send(messageObject);
+            }
           }
         }
         callback();
@@ -36,7 +48,7 @@ exports.registerRoute = function (hook_name, args, cb) {
       function(callback){
         var render_args = {
           message: message,
-          users: socketio.sockets.adapter.nsp.connected.length
+          users: Object.keys(clients).length
         };
         res.send( eejs.require("ep_message_all/templates/admin/shout.html", render_args) );
         callback();
