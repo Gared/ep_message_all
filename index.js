@@ -16,12 +16,7 @@ exports.eejsBlock_adminMenu = function(hook_name, args, cb) {
 exports.registerRoute = function (hook_name, args, cb) {
   args.app.get('/admin/message_to_all', function(req, res) {
     var message = req.query.message;
-    var clients;
-    if (socketio.sockets.clients) {
-      clients = socketio.sockets.clients();
-    } else {
-      clients = socketio.sockets.adapter.nsp.connected;
-    }
+    var clients = socketio.sockets.sockets || socketio.sockets.adapter.nsp.connected || socketio.sockets.clients();
     
     async.series([
       function(callback){
