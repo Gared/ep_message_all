@@ -1,6 +1,6 @@
 {
 "ep_message_all.adminMenuEntry": "Message to all",
 "ep_message_all.divTextConUsers": "Connected users",
-"ep_message_all.sendMessageDescription": "Send a message to all connected users",
+"ep_message_all.sendMessageDescription": "Send a message to all connected and new users for the next minutes",
 "ep_message_all.formBtnSendVal": "Send message"
 }

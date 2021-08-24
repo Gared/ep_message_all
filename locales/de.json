@@ -1,6 +1,6 @@
 {
 "ep_message_all.adminMenuEntry": "Nachricht an Alle",
-"ep_message_all.divTextConUsers": "Verbunde Benutzer",
-"ep_message_all.sendMessageDescription": "Sende eine Nachricht an alle verbundenen Benutzer",
+"ep_message_all.divTextConUsers": "Verbundene Benutzer",
+"ep_message_all.sendMessageDescription": "Sende eine Nachricht an alle verbundenen und neuen Benutzer für die nächsten Minuten",
 "ep_message_all.formBtnSendVal": "Nachricht senden"
 }
