@@ -1,6 +1,6 @@
 {
   "name": "ep_message_all",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Use the Etherpad admin backend to send a message to all connected users",
   "author": "gared <stefan@stefans-entwicklerecke.de> (STEFAN MUELLER)",
   "contributors": [],
@@ -9,7 +9,6 @@
     "node": ">= 0.6.0"
   },
   "readmeFilename": "README.md",
-  "gitHead": "1899222cb082ae9a35ce191d490587695820b094",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
