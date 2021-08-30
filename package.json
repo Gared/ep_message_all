@@ -1,6 +1,6 @@
 {
   "name": "ep_message_all",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Use the Etherpad admin backend to send a message to all connected users",
   "author": "gared <stefan@stefans-entwicklerecke.de> (STEFAN MUELLER)",
   "contributors": [],
