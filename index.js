@@ -36,10 +36,11 @@ exports.socketio = function(hook_name, {io}, cb) {
   return cb();
 }
 
-exports.handleMessage = async (hookName, {message, socket}) => {
+// "client" is deprecated, but older versions just had "client" and no "socket" property
+exports.handleMessage = async (hookName, {message, socket, client}) => {
   if (message.type === 'CLIENT_READY' && lastMessage.timestamp && lastMessage.timestamp > Date.now() - showMessageTime) {
     setTimeout(function () {
-      sendMessage(socket, lastMessage.message, lastMessage.timestamp)
+      sendMessage(socket || client, lastMessage.message, lastMessage.timestamp)
     }, 2000);
   }
 };
